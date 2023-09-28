@@ -20,15 +20,17 @@ def read_file(file_name):
         file_content = f.readlines()
         for i in range(0, len(file_content)):
             line = file_content[i].strip()
-            file_content[i] = line.split("=")[1]
+            # file_content[i] = line.split("=")[1]
         # чтение ключевого слова
-        key_word = file_content[0]
+        key_word = file_content[0].strip()
         # чтение индекса смещения
-        key_index = file_content[1]
+        key_index = file_content[1].strip()
         # чтение режима шифровака (расшифровка)
-        mood = file_content[2]
+        mood = file_content[2].strip()
         # чтение текста, который нужно зашифровать (расшифровать)
-        body = file_content[3]
+        body = ''
+        for i in range(3, len(file_content)):
+            body += (file_content[i] + '\r')
         try:
             key_index = int(key_index)
             if mood.upper() == "TRUE":
