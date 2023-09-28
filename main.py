@@ -11,20 +11,21 @@ import string
 def read_file(file_name):
     f = open(file_name, encoding='utf-8', mode='r')
     try:
-        file_content = f.readlines()
-        for i in range(0, len(file_content)):
-            line = file_content[i].strip()
+        # file_content = f.read()
+        # for i in range(0, len(file_content)):
+        #     line = file_content[i].strip()
             # file_content[i] = line.split("=")[1]
         # чтение ключевого слова
-        key_word = file_content[0].strip()
+        # key_word = file_content[0].strip()
+        key_word = input("Введите ключевое слово:")
         # чтение индекса смещения
-        key_index = file_content[1].strip()
+        # key_index = file_content[1].strip()
+        key_index = input("Введите индекс смещения:")
         # чтение режима шифровака (расшифровка)
-        mood = file_content[2].strip()
+        # mood = file_content[2].strip()
+        mood = input("Введите режим (true - шифрование/false - дешифрование):")
         # чтение текста, который нужно зашифровать (расшифровать)
-        body = ''
-        for i in range(3, len(file_content)):
-            body += (file_content[i] + '\r')
+        body = f.read()
         try:
             key_index = int(key_index)
             if mood.upper() == "TRUE":
